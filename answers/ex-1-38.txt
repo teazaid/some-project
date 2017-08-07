@@ -1,0 +1,17 @@
+(define (e-euler x)
+(+ 2.0 (cont-frac (lambda (i) 1)
+                 (lambda (i)
+                   (if (= (remainder i 3) 2)
+                       (+ (* (quotient i 3) 2) 2)
+                       1))
+                 x)))
+
+
+
+(define (cont-frac n d k)
+(cond ((= k 0) 0)
+      (else (/ (n k) (+ (d k) (cont-frac n d (- k 1)))))))
+
+
+
+(display (e-euler 1000))

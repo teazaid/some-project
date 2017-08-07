@@ -1,0 +1,25 @@
+(define (p) (p))
+
+(define (test x y)
+  (if (= x 0)
+      0
+      y))
+
+applicative-order:
+(test 0 (p))
+step 1: (test 0 (p))
+step 2: (test 0 (p))
+...
+step N: (test 0 (p))
+
+Thus, applicative order evaluation will never end.
+
+normal-order evaluation:
+(test 0 (p))
+
+step 1:
+(if (= 0 0)
+      0
+      p))
+
+step 2: 0
